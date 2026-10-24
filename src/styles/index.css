@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root { font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; color: #171717; background: #dfe3ea; font-synthesis: none; }
+* { box-sizing: border-box; }
+html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
+button { font: inherit; }
+.simulator-stage { min-height: 100dvh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at top, #f7f8fc 0, #dfe3ea 55%, #c9ced7 100%); }
+.phone-frame { width: min(393px, calc(100vw - 24px), calc((100dvh - 24px) * 393 / 852)); aspect-ratio: 393 / 852; padding: 7px; border-radius: 54px; background: #111; box-shadow: 0 32px 80px #2630404d, 0 8px 24px #26304033, inset 0 0 0 1px #ffffff33; }
+.phone-screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 48px; background: #fff; }
+.route-viewport { position: absolute; inset: 0; }
+.status-bar { position: absolute; inset: 0 0 auto; z-index: 50; height: 59px; display: grid; grid-template-columns: 1fr 126px 1fr; align-items: center; padding: 0 22px; pointer-events: none; }
+.status-time { justify-self: start; font-size: 15px; font-weight: 700; letter-spacing: -.3px; }
+.dynamic-island { width: 126px; height: 37px; border-radius: 999px; background: #000; }
+.status-icons { justify-self: end; display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.status-icons .battery { font-size: 21px; }
+.home-indicator { position: absolute; z-index: 60; bottom: 7px; left: 50%; width: 126px; height: 5px; translate: -50%; border-radius: 99px; background: #111; pointer-events: none; }
+.wallpaper { width: 100%; height: 100%; background-image: url('/wallpaper.jpg'), linear-gradient(180deg, #e3e6f6 0%, #b6bfde 100%); background-size: cover; background-position: center; }
+.home-screen { padding: 76px 20px 26px; display: flex; flex-direction: column; }
+.widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.widget-card { height: 145px; display: flex; flex-direction: column; justify-content: center; padding: 20px; border-radius: 24px; background: #ffffff70; color: #353d59; backdrop-filter: blur(14px); }
+.widget-card strong { font-size: 42px; line-height: 1; }
+.widget-card span:last-child { margin-top: 8px; font-size: 13px; }
+.widget-eyebrow { margin-bottom: 8px; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.weather-widget { color: #342d46; }
+.app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 15px; margin-top: 24px; }
+.app-shortcut { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; border: 0; padding: 0; background: transparent; color: #fff; cursor: pointer; text-shadow: 0 1px 3px #0008; }
+.app-shortcut:disabled { cursor: default; opacity: .92; }
+.app-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 14px; box-shadow: 0 2px 5px #0002; font-size: 28px; text-shadow: none; }
+.app-label { max-width: 72px; overflow: hidden; text-overflow: ellipsis; font-size: 11px; white-space: nowrap; }
+.page-dots { margin-top: auto; display: flex; justify-content: center; gap: 6px; padding: 11px; }
+.page-dots span { width: 6px; height: 6px; border-radius: 50%; background: #ffffff80; }.page-dots span:first-child { background: #fff; }
+.dock { height: 80px; display: grid; grid-template-columns: repeat(4, 1fr); place-items: center; border-radius: 25px; background: #ffffff66; backdrop-filter: blur(18px); }
+.dock-shortcut .app-icon { width: 54px; height: 54px; }
+.lock-screen { position: relative; padding-top: 83px; text-align: center; color: #fff; cursor: pointer; text-shadow: 0 2px 10px #252b4e70; touch-action: none; }
+.lock-date { font-size: 18px; font-weight: 600; }.lock-time { margin-top: 4px; font-size: 76px; font-weight: 200; letter-spacing: -4px; }
+.lock-actions { position: absolute; left: 42px; right: 42px; bottom: 55px; display: flex; justify-content: space-between; }
+.lock-actions span { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: #1118; backdrop-filter: blur(10px); }
+.unlock-hint { position: absolute; bottom: 24px; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; font-size: 11px; opacity: .9; }
+.app-page { height: 100%; padding-top: 59px; background: #fff; }
+.app-header { height: 70px; display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; padding: 0 12px; }
+.back-button { width: 40px; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: #3a1d1d; cursor: pointer; font-size: 19px; }
+.header-title-wrap { min-width: 0; text-align: center; }.header-title-wrap h1 { margin: 0; overflow: hidden; text-overflow: ellipsis; font-size: 20px; white-space: nowrap; }.header-title-wrap span { font-size: 11px; color: #8e8e93; }
+.header-trailing { justify-self: end; color: #3a1d1d; font-size: 20px; }
+.kakao-list-page .app-header { grid-template-columns: 48px 1fr 48px; }.kakao-list-page .header-title-wrap { text-align: left; }.kakao-list-page .header-title-wrap h1 { font-size: 30px; }.kakao-list-page .back-button { visibility: visible; }
+.search-field { height: 42px; margin: 0 20px 18px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 12px; background: #f0f0f3; color: #8e8e93; }
+.chat-list { padding: 0 10px; }.chat-row { width: 100%; display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 12px; padding: 11px; border: 0; border-radius: 14px; background: #fff; text-align: left; cursor: pointer; }
+.chat-row:hover { background: #fafafa; }.chat-avatar { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 20px; background: #e7e8ed; color: #a5a7b0; font-size: 23px; }
+.chat-copy { min-width: 0; display: flex; flex-direction: column; gap: 4px; }.chat-copy strong { color: #351c1b; font-size: 16px; }.chat-copy small { overflow: hidden; color: #898990; text-overflow: ellipsis; white-space: nowrap; }
+.chat-meta { align-self: stretch; display: flex; flex-direction: column; align-items: end; justify-content: space-around; color: #a5a5ac; }.chat-meta b { min-width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #fee500; color: #271d00; font-size: 12px; }
+.kakao-tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 74px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; border-top: 1px solid #e5e5e8; background: #fff; color: #83838a; text-align: center; font-size: 11px; }.kakao-tabs strong { color: #3a1d1d; }
+.chat-room-page { display: flex; flex-direction: column; background: #a8c8d8; }.chat-room-page .app-header { flex: 0 0 70px; }.empty-chat { flex: 1; display: grid; place-items: center; color: #5f7884; font-size: 13px; }.message-composer { min-height: 70px; display: grid; grid-template-columns: 38px 1fr 40px; align-items: center; gap: 8px; padding: 10px 14px 22px; background: #fff; }.message-composer button { border: 0; background: transparent; color: #84848a; }.message-composer div { padding: 10px 15px; border: 1px solid #dddde2; border-radius: 22px; color: #a1a1a7; }.message-composer .send-button { width: 38px; height: 38px; border-radius: 11px; background: #fee500; color: #2b2500; }
+.placeholder-content { height: calc(100% - 70px); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #a0a0a7; }.placeholder-content div { width: 74px; height: 74px; border-radius: 22px; background: #f0f0f3; }.placeholder-content h2 { margin: 18px 0 4px; color: #222; }.placeholder-content p { margin: 0; font-size: 13px; }
+@media (max-height: 700px) { .simulator-stage { padding: 8px; } }
